@@ -18,12 +18,24 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".document",
+    ".rvmrc",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "lib/fr2_audit_logic.rb"
+    "fr2_audit_logic.gemspec",
+    "lib/audit.rb",
+    "lib/audit_problem/agency_element_too_large.rb",
+    "lib/audit_problem/base.rb",
+    "lib/audit_problem/bulkdata_element_too_large.rb",
+    "lib/audit_problem/entry_specific.rb",
+    "lib/audit_problem/missing_mods_file.rb",
+    "lib/audit_problem/missing_page_range.rb",
+    "lib/audit_problem/missing_title.rb",
+    "lib/fr2_audit_logic.rb",
+    "lib/fr2_audit_logic/tasks.rb"
   ]
   s.homepage = %q{http://github.com/andrewcarpenter/fr2_audit_logic}
   s.licenses = ["MIT"]
@@ -36,20 +48,17 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<mongoid>, [">= 0"])
-      s.add_runtime_dependency(%q<bson_ext>, ["= 0.20.1"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.0"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
       s.add_dependency(%q<mongoid>, [">= 0"])
-      s.add_dependency(%q<bson_ext>, ["= 0.20.1"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
       s.add_dependency(%q<rcov>, [">= 0"])
     end
   else
     s.add_dependency(%q<mongoid>, [">= 0"])
-    s.add_dependency(%q<bson_ext>, ["= 0.20.1"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
     s.add_dependency(%q<rcov>, [">= 0"])
