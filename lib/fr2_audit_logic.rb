@@ -5,6 +5,9 @@ require 'audit_problem/missing_mods_file'
 
 require 'audit_problem/entry_specific'
 require 'audit_problem/missing_title'
+require 'audit_problem/missing_agency'
+require 'audit_problem/missing_agency_name'
+require 'audit_problem/missing_granule_class'
 require 'audit_problem/missing_page_range'
 
 require 'audit_problem/bulkdata_element_too_large'
