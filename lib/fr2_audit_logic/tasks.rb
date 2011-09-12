@@ -4,6 +4,11 @@ namespace :audit do
     AuditProblem::AgencyElementTooLarge.perform
   end
 
+  desc "Audit for document numbers starting with X"
+  task :invalid_document_number => :environment do
+    AuditProblem::InvalidDocumentNumber.perform
+  end
+
   desc "Audit for missing issues (bulkdata and mods)"
   task :missing_issue => :environment do
     AuditProblem::MissingIssue.perform
@@ -37,7 +42,8 @@ namespace :audit do
   desc "Run all audit tasks"
   task :all => [
     :agency_element_too_large,
-    :missing_mods_file,
+    :invalid_document_number,
+    :missing_issue,
     :missing_page_range,
     :missing_agency,
     :missing_agency_name,

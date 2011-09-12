@@ -4,6 +4,7 @@ require 'audit_problem/base'
 require 'audit_problem/missing_issue'
 
 require 'audit_problem/entry_specific'
+require 'audit_problem/invalid_document_number'
 require 'audit_problem/missing_title'
 require 'audit_problem/missing_agency'
 require 'audit_problem/missing_agency_name'
