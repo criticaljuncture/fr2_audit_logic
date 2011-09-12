@@ -5,7 +5,7 @@ class AuditProblem::MissingIssue < AuditProblem::Base
 
   def self.run(options = {})
     problems = []
-    (Date.parse('1999-01-01')..Date.parse('2003-01-01')).each do |date|
+    (Date.parse('1994-01-01')..Date.current).each do |date|
       if Issue.should_have_an_issue?(date)
         if Entry.published_on(date).count == 0
           problems << new(:publication_date => date,
