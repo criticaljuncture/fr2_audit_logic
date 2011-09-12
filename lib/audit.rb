@@ -6,10 +6,12 @@ class Audit
   field :options,         :type => Hash
   field :type,            :type => String
   field :problem_counts_by_year,  :type => Hash
+  field :problem_count,   :type => Integer
 
   embeds_many :audit_problems, :class_name => "AuditProblem::Base"
 
   before_save :calculate_problem_counts_by_year
+  before_save :calculate_problem_count
 
   def self.using_object_ids?
     false
@@ -28,5 +30,9 @@ class Audit
     end
 
     self.problem_counts_by_year = counts
+  end
+
+  def calculate_problem_count
+    self.problem_count = problem_counts_by_year.values.sum
   end
 end
