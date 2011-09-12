@@ -17,6 +17,14 @@ class Audit
     false
   end
 
+  def problems
+    audit_problems
+  end
+
+  def problems=(audit_problems)
+    self.audit_problems = audit_problems.sort_by(&:publication_date)  
+  end
+
   private
 
   def calculate_problem_counts_by_year

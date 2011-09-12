@@ -7,7 +7,7 @@ module AuditProblem
     def self.perform(options = {})
       audit = Audit.new(:type => self.to_s)
       audit.started_at   = Time.now
-      audit.audit_problems     = run(options)
+      audit.problems     = run(options)
       audit.completed_at = Time.now
       audit.save!
     end
