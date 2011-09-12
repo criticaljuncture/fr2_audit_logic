@@ -4,9 +4,9 @@ namespace :audit do
     AuditProblem::AgencyElementTooLarge.perform
   end
 
-  desc "Audit for missing MODS files"
-  task :missing_mods_file => :environment do
-    AuditProblem::MissingModsFile.perform
+  desc "Audit for missing issues (bulkdata and mods)"
+  task :missing_issue => :environment do
+    AuditProblem::MissingIssue.perform
   end
 
   desc "Audit for missing pages"

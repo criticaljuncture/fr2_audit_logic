@@ -1,7 +1,7 @@
 require 'mongoid'
 require 'audit'
 require 'audit_problem/base'
-require 'audit_problem/missing_mods_file'
+require 'audit_problem/missing_issue'
 
 require 'audit_problem/entry_specific'
 require 'audit_problem/missing_title'
