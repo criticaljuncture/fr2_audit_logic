@@ -39,6 +39,11 @@ namespace :audit do
     AuditProblem::MissingTitle.perform
   end
 
+  desc "Audit for missing topics"
+  task :missing_topic => :environment do
+    AuditProblem::MissingTopic.perform
+  end
+
   desc "Run all audit tasks"
   task :all => [
     :agency_element_too_large,
@@ -49,6 +54,7 @@ namespace :audit do
     :missing_agency,
     :missing_agency_name,
     :missing_granule_class,
-    :missing_title
+    :missing_title,
+    :missing_topic
   ]
 end
