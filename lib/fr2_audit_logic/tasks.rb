@@ -9,9 +9,9 @@ namespace :audit do
     AuditProblem::InvalidDocumentNumber.perform
   end
 
-  desc "Audit for missing issues (bulkdata and mods)"
-  task :missing_issue => :environment do
-    AuditProblem::MissingIssue.perform
+  desc "Audit for missing document numbers"
+  task :missing_bulkdata_file => :environment do 
+    AuditProblem::MissingBulkdataFile.perform
   end
 
   desc "Audit for missing pages"
@@ -43,6 +43,7 @@ namespace :audit do
   task :all => [
     :agency_element_too_large,
     :invalid_document_number,
+    :missing_bulkdata_file,
     :missing_issue,
     :missing_page_range,
     :missing_agency,
