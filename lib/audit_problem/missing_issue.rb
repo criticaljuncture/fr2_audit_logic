@@ -20,7 +20,7 @@ class AuditProblem::MissingIssue < AuditProblem::Base
   private
 
   def self.mods_file_available?(date)
-    mods_file = Content::EntryImporter::ModsFile.new(date)
+    mods_file = Content::EntryImporter::ModsFile.new(date, false)
     File.delete(mods_file.file_path) if File.exists?(mods_file.file_path)
     begin
       mods_file.document
@@ -31,7 +31,7 @@ class AuditProblem::MissingIssue < AuditProblem::Base
   end
 
   def self.bulkdata_available?(date)
-    bulkdata_file = Content::EntryImporter::BulkdataFile.new(date)
+    bulkdata_file = Content::EntryImporter::BulkdataFile.new(date, false)
     return nil if date < Date.parse('2000-01-01')
  
     File.delete(bulkdata_file.path) if File.exists?(bulkdata_file.path)

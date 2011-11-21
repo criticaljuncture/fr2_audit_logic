@@ -14,7 +14,7 @@ class AuditProblem::MissingBulkdataFile < AuditProblem::Base
   private
 
   def self.bulkdata_available?(date)
-    bulkdata_file = Content::EntryImporter::BulkdataFile.new(date)
+    bulkdata_file = Content::EntryImporter::BulkdataFile.new(date, false)
     return nil if date < Date.parse('2000-01-01')
  
     File.delete(bulkdata_file.path) if File.exists?(bulkdata_file.path)
