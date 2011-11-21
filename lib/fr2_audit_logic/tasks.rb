@@ -39,6 +39,11 @@ namespace :audit do
     AuditProblem::MissingTitle.perform
   end
 
+  desc "Audit for missing issue"
+  task :missing_issue => :environment do
+    AuditProblem::MissingIssue.perform
+  end
+
   desc "Audit for missing topics"
   task :missing_topic => :environment do
     AuditProblem::MissingTopic.perform
